@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "updating server..."
+
+apt-get update
+apt-get upgrade -y
+apt-get install apache2 -y
+apt-get install unzip -y
+
+echo "Downloading and copying the application files..."
+
+cd /tmp
+wget https://github.com/lukieyh/pokedex-v1/archive/refs/heads/main.zip
+unzip pokedex-v1-main.zip
+cd pokedex-v1-main
+cp -R * /var/www/html/
